@@ -29,8 +29,8 @@ pipeline{
 
     post {
         always {
-            sh "docker-compose -f gridStart.yaml down"
-            sh "docker-compose -f test_suites.yaml down"
+            bat "docker-compose -f gridStart.yaml down"
+            bat "docker-compose -f test_suites.yaml down"
             archiveArtifacts artifacts: 'C:/Users/manir/eclipse-workspace/dockerPractice/output/flightApplication/emailable-report.html', followSymlinks: false
             archiveArtifacts artifacts: 'C:/Users/manir/eclipse-workspace/dockerPractice/output/vendorApplication/emailable-report.html', followSymlinks: false
         }
