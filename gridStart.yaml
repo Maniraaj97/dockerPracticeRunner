@@ -2,21 +2,19 @@ version: "3"
 services:
   hub:
     image: selenium/hub:4.20
-
   chrome:
-    image: selenium/node-chrome:4.20
-    shm_size: '2g'
+    image: selenium/node-chromium:4.20
+    shm_size: '1g'
     depends_on:
-      - hub
+    - hub
     deploy:
-      replicas: 1
+      replicas: 0
     env_file: .env
-
   firefox:
-    image: seleniarm/node-firefox:4.20
-    shm_size: '2g'
+    image: selenium/node-firefox:4.20
+    shm_size: '1g'
     depends_on:
-      - hub
+    - hub
     deploy:
-      replicas: 1
+      replicas: 0
     env_file: .env
